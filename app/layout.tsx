@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
-import { Carlito } from "next/font/google";
+import { Carlito, Fira_Code } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const carlito = Carlito({
   variable: "--font-carlito",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const firaCode = Fira_Code({
+  variable: "--font-fira-code",
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -21,8 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${carlito.variable} ${carlito.className} min-h-screen antialiased`}
+        className={`${carlito.variable} ${firaCode.variable} ${carlito.className} antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>
