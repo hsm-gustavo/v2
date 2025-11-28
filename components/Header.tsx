@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ModeToggle } from "./mode-toggle";
 
 export default function Header() {
   /* scroll -top-14 */
@@ -32,7 +33,7 @@ export default function Header() {
 
   return (
     <header
-      className={`font-fira-code bg-background fixed flex w-full items-center justify-between px-4 py-3 shadow-2xl transition-transform duration-300 md:px-8 md:py-4 ${isVisible ? "translate-y-0" : "-translate-y-14"}`}
+      className={`font-fira-code bg-background fixed z-50 flex w-full items-center justify-between px-4 py-3 shadow-2xl transition-transform duration-300 md:px-8 md:py-4 ${isVisible ? "translate-y-0" : "-translate-y-[68px]"}`}
     >
       <Link
         href={"/"}
@@ -57,6 +58,7 @@ export default function Header() {
           </li>
         </ul>
       </nav>
+      <ModeToggle />
     </header>
   );
 }

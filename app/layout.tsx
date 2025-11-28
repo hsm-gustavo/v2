@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Carlito, Fira_Code } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const carlito = Carlito({
   variable: "--font-carlito",
@@ -26,12 +27,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${carlito.variable} ${firaCode.variable} ${carlito.className} antialiased`}
       >
-        <Header />
-        {children}
+        <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

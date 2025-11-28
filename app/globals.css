@@ -42,6 +42,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --ease-smooth: var(--smooth);
 }
 
 :root {
@@ -78,6 +79,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dark {
@@ -127,5 +129,16 @@
       -1px -1px 0px var(--background),
       3px 3px 0px var(--background),
       6px 6px 0px #00000055;
+  }
+
+  .image-shadow {
+    filter: drop-shadow(8px 8px 0 var(--primary));
+
+    transition: all 150ms;
+  }
+
+  .image-shadow:hover {
+    filter: drop-shadow(15px 15px 0 var(--primary));
+    transform: translate(-0.125rem, -0.125rem);
   }
 }
