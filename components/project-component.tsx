@@ -1,3 +1,4 @@
+import { smoothScrollToSection } from "@/lib/utils";
 import { Code, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,16 +37,19 @@ export default function ProjectComponent({
       <Link
         href={projectUrl ?? codeUrl ?? "#projects"}
         className="relative"
-        target="_blank"
-        rel="noopener noreferrer"
+        target={projectUrl || codeUrl ? "_blank" : undefined}
+        rel={projectUrl || codeUrl ? "noopener noreferrer" : undefined}
+        {...(projectUrl || codeUrl
+          ? undefined
+          : { onClick: (e) => smoothScrollToSection(e) })}
       >
         <h3 className="text-2xl font-semibold">{title}</h3>
-        <p className="my-4 text-lg">{description}</p>
+        <p className="my-4 text-base md:text-lg">{description}</p>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="font-fira-code bg-background/50 px-3 py-1 text-sm"
+              className="font-fira-code bg-background/50 px-3 py-1 text-xs md:text-sm"
             >
               {tag}
             </span>

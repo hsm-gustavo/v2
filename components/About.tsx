@@ -7,11 +7,11 @@ export default function About() {
       className="container mx-auto content-center space-y-4 px-4"
       id="about"
     >
-      <h2 className="text-center text-4xl font-bold text-shadow-2xs text-shadow-black/55">
+      <h2 className="text-center text-3xl font-bold text-shadow-2xs text-shadow-black/55 lg:text-4xl">
         About Me
       </h2>
       <div className="flex flex-col items-center gap-8 md:flex-row">
-        <div className="space-y-3 text-lg">
+        <div className="space-y-3 text-base md:text-lg">
           <p>
             Hi, I&apos;m Gustavo, a full-stack web developer focused on building
             clean, scalable, and accessible web experiences. I work primarily
