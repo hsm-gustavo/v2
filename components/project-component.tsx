@@ -1,12 +1,13 @@
 "use client";
 
 import { useIsMobile } from "@/hooks/use-mobile";
-import { cn, smoothScrollToSection } from "@/lib/utils";
-import { Code, ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 import { motion, useTransform, useScroll } from "motion/react";
+import { useLinkProps } from "@/lib/link-props";
+import ProjectDefaultComponent from "./project-default-component";
 
 interface ProjectComponentProps {
   title: string;
@@ -16,6 +17,7 @@ interface ProjectComponentProps {
   projectUrl?: string;
   codeUrl?: string;
   side?: "left" | "right";
+  validateMobile?: boolean;
 }
 
 export default function ProjectComponent({
@@ -26,6 +28,7 @@ export default function ProjectComponent({
   projectUrl,
   codeUrl,
   side = "left",
+  validateMobile = true,
 }: ProjectComponentProps) {
   const isMobile = useIsMobile();
   const ref = useRef(null);
@@ -36,19 +39,9 @@ export default function ProjectComponent({
   const imageParallax = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const textParallax = useTransform(scrollYProgress, [0, 1], [0, -75]);
 
-  const linkProps = useMemo(() => {
-    const href = projectUrl ?? codeUrl ?? "#projects";
-    const hasExternalUrl = projectUrl || codeUrl;
+  const linkProps = useLinkProps(projectUrl, codeUrl);
 
-    return {
-      href,
-      target: hasExternalUrl ? "_blank" : undefined,
-      rel: hasExternalUrl ? "noopener noreferrer" : undefined,
-      onClick: hasExternalUrl ? undefined : smoothScrollToSection,
-    };
-  }, [projectUrl, codeUrl]);
-
-  if (!isMobile) {
+  if (!isMobile && validateMobile) {
     return (
       <Link
         className="group relative grid h-full w-full grid-cols-[repeat(6,1fr)] items-center gap-2.5 rounded-sm"
@@ -96,45 +89,14 @@ export default function ProjectComponent({
   }
 
   return (
-    <Link
-      className="bg-primary/20 focus:ring-primary relative block h-full w-full max-w-3xl overflow-hidden rounded-sm p-8"
-      role="group"
-      {...linkProps}
-    >
-      <Image
-        src={imageUrl}
-        alt={title}
-        fill
-        className="object-cover opacity-10"
-      />
-
-      <div className="relative">
-        <h3 className="text-2xl font-semibold">{title}</h3>
-        <p className="my-4 text-base md:text-lg">{description}</p>
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="font-fira-code bg-background/50 px-3 py-1 text-xs md:text-sm"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="absolute top-0 right-0 m-2 flex gap-2">
-        {projectUrl && (
-          <div>
-            <ExternalLink className="h-5 w-5 text-white/70 hover:text-white" />
-          </div>
-        )}
-        {codeUrl && (
-          <div>
-            <Code className="h-5 w-5 text-white/70 hover:text-white" />
-          </div>
-        )}
-      </div>
-    </Link>
+    <ProjectDefaultComponent
+      title={title}
+      description={description}
+      tags={tags}
+      imageUrl={imageUrl}
+      projectUrl={projectUrl}
+      codeUrl={codeUrl}
+      linkProps={linkProps}
+    />
   );
 }
