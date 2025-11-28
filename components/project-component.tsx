@@ -11,6 +11,7 @@ interface ProjectComponentProps {
   projectUrl?: string;
   codeUrl?: string;
   onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export default function ProjectComponent({
@@ -21,11 +22,15 @@ export default function ProjectComponent({
   projectUrl,
   codeUrl,
   onMouseEnter,
+  onMouseLeave,
 }: ProjectComponentProps) {
   return (
     <div
       className="bg-primary/20 relative w-full max-w-3xl overflow-hidden rounded-sm p-8"
       onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      data-hover-target
+      role="group"
     >
       <Image
         src={imageUrl}
