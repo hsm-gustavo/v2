@@ -11,39 +11,23 @@ export default function Icon() {
   return new ImageResponse(
     <div
       style={{
+        fontSize: 26,
+        background: "black",
+        width: "100%",
+        height: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: "100%",
-        height: "100%",
-        fontSize: 32,
-        backgroundColor: "transparent",
         color: "white",
+        borderRadius: "12px",
+        fontWeight: 700,
+        fontFamily: "sans-serif",
       }}
     >
-      <span
-        style={{
-          color: "black",
-        }}
-      >
-        &lt;
-      </span>
-      g
-      <span
-        style={{
-          color: "black",
-        }}
-      >
-        /
-      </span>
-      <span
-        style={{
-          color: "black",
-        }}
-      >
-        &gt;
-      </span>
+      GM
     </div>,
-    { ...size },
+    {
+      ...size,
+    },
   );
 }
