@@ -1,7 +1,10 @@
+"use client";
+
 import { smoothScrollToSection } from "@/lib/utils";
 import { Code, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
 
 interface ProjectComponentProps {
   title: string;
@@ -10,8 +13,6 @@ interface ProjectComponentProps {
   imageUrl: string;
   projectUrl?: string;
   codeUrl?: string;
-  onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export default function ProjectComponent({
@@ -21,16 +22,24 @@ export default function ProjectComponent({
   imageUrl,
   projectUrl,
   codeUrl,
-  onMouseEnter,
-  onMouseLeave,
 }: ProjectComponentProps) {
+  const linkProps = useMemo(() => {
+    const href = projectUrl ?? codeUrl ?? "#projects";
+    const hasExternalUrl = projectUrl || codeUrl;
+
+    return {
+      href,
+      target: hasExternalUrl ? "_blank" : undefined,
+      rel: hasExternalUrl ? "noopener noreferrer" : undefined,
+      onClick: hasExternalUrl ? undefined : smoothScrollToSection,
+    };
+  }, [projectUrl, codeUrl]);
+
   return (
-    <div
-      className="bg-primary/20 relative w-full max-w-3xl overflow-hidden rounded-sm p-8"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      data-hover-target
+    <Link
+      className="bg-primary/20 focus:ring-primary relative block h-full w-full max-w-3xl overflow-hidden rounded-sm p-8"
       role="group"
+      {...linkProps}
     >
       <Image
         src={imageUrl}
@@ -39,15 +48,7 @@ export default function ProjectComponent({
         className="object-cover opacity-10"
       />
 
-      <Link
-        href={projectUrl ?? codeUrl ?? "#projects"}
-        className="relative"
-        target={projectUrl || codeUrl ? "_blank" : undefined}
-        rel={projectUrl || codeUrl ? "noopener noreferrer" : undefined}
-        {...(projectUrl || codeUrl
-          ? undefined
-          : { onClick: (e) => smoothScrollToSection(e) })}
-      >
+      <div className="relative">
         <h3 className="text-2xl font-semibold">{title}</h3>
         <p className="my-4 text-base md:text-lg">{description}</p>
         <div className="flex flex-wrap gap-2">
@@ -60,19 +61,20 @@ export default function ProjectComponent({
             </span>
           ))}
         </div>
-      </Link>
+      </div>
+
       <div className="absolute top-0 right-0 m-2 flex gap-2">
         {projectUrl && (
-          <Link href={projectUrl} target="_blank" rel="noopener noreferrer">
+          <div>
             <ExternalLink className="h-5 w-5 text-white/70 hover:text-white" />
-          </Link>
+          </div>
         )}
         {codeUrl && (
-          <Link href={codeUrl} target="_blank" rel="noopener noreferrer">
+          <div>
             <Code className="h-5 w-5 text-white/70 hover:text-white" />
-          </Link>
+          </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 }
