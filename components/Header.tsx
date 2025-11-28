@@ -63,6 +63,15 @@ export default function Header() {
               contact
             </Link>
           </li>
+          <li>
+            <Link
+              href={"/resume.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              resume
+            </Link>
+          </li>
         </ul>
         <ModeToggle />
       </nav>
