@@ -10,7 +10,7 @@ export default function Projects() {
       className="container mx-auto content-center space-y-4 px-4"
       id="projects"
     >
-      <h2 className="mb-14 text-center text-3xl font-bold text-shadow-2xs text-shadow-black/55 lg:text-4xl">
+      <h2 className="mb-28 text-center text-3xl font-bold text-shadow-2xs text-shadow-black/55 lg:text-4xl">
         Some of My Projects
       </h2>
       <HoverHighlight

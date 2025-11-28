@@ -10,6 +10,7 @@ export default function Footer() {
           href="https://v4.brittanychiang.com/"
           target="_blank"
           rel="noopener noreferrer"
+          className="text-foreground-secondary underline"
         >
           Britanny Chiang&apos;s website
         </Link>

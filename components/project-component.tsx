@@ -61,7 +61,7 @@ export default function ProjectComponent({
             "image-shadow relative aspect-video",
             side === "left" ? "col-[4/7] row-1" : "col-[1/4] row-1",
           )}
-          style={{ y: side === "left" ? imageParallax : textParallax }}
+          style={{ y: imageParallax }}
         >
           <Image
             src={imageUrl}
@@ -76,7 +76,7 @@ export default function ProjectComponent({
             "bg-secondary text-secondary-foreground z-10 w-full rounded-sm p-8 text-shadow-2xs",
             side === "left" ? "col-[1/5] row-1" : "col-[3/7] row-1",
           )}
-          style={{ y: side === "left" ? textParallax : imageParallax }}
+          style={{ y: textParallax }}
         >
           <h3 className="text-2xl font-semibold">{title}</h3>
           <p className="my-4 text-base md:text-lg">{description}</p>
