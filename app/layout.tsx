@@ -41,11 +41,11 @@ export const viewport: Viewport = {
   themeColor: [
     {
       media: "(prefers-color-scheme: light)",
-      color: "oklch(0.6692 0.1065 170.05)",
+      color: "#43aa8b",
     },
     {
       media: "(prefers-color-scheme: dark)",
-      color: "oklch(0.3616 0.0374 187.73)",
+      color: "#254441",
     },
   ],
 };
