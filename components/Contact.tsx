@@ -11,13 +11,13 @@ const contact = [
   },
   {
     type: "github",
-    url: "github.com/hsm-gustavo",
+    url: "https://www.github.com/hsm-gustavo",
     iconUrl: "https://twenty-icons.com/github.com/32",
     alt: "GitHub",
   },
   {
     type: "linkedin",
-    url: "www.linkedin.com/in/gustavo-hs-malaquias",
+    url: "https://www.linkedin.com/in/gustavo-hs-malaquias",
     iconUrl: "https://twenty-icons.com/linkedin.com/32",
     alt: "LinkedIn",
   },
