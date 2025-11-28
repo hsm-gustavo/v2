@@ -5,7 +5,7 @@ import { LineSeparator } from "./separators";
 import SideProjects from "./SideProjects";
 
 export default function Projects() {
-  const HIGHLIGHT_PADDING = 16;
+  const HIGHLIGHT_PADDING = 6;
 
   return (
     <section
