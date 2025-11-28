@@ -1,6 +1,8 @@
 import { projects } from "@/lib/project-data";
 import ProjectComponent from "./project-component";
 import { HoverHighlight } from "./hover-highlight";
+import { LineSeparator } from "./separators";
+import SideProjects from "./SideProjects";
 
 export default function Projects() {
   const HIGHLIGHT_PADDING = 16;
@@ -25,6 +27,8 @@ export default function Projects() {
           />
         ))}
       </HoverHighlight>
+      <LineSeparator />
+      <SideProjects />
     </section>
   );
 }

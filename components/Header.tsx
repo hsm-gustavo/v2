@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ModeToggle } from "./mode-toggle";
-import { smoothScrollToSection } from "@/lib/utils";
+import { smoothScrollToSection } from "@/lib/link-props";
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true);

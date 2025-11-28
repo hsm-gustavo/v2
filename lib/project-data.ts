@@ -83,6 +83,43 @@ const sideProjects: Project[] = [
     codeUrl: "https://github.com/hsm-gustavo/mona-ai-front",
     imageUrl: "/mona.png",
   },
+  {
+    title: "BookMuse",
+    description:
+      "A social media platform for book lovers. I developed both the front end and back end of the application, using OpenLibrary API and caching the data with Redis for improved performance.",
+    tags: [
+      "Next.js",
+      "TailwindCSS",
+      "TypeScript",
+      "NestJS",
+      "PostgreSQL",
+      "Redis",
+    ],
+    codeUrl: "https://github.com/hsm-gustavo/book-muse-backend",
+    imageUrl: "/book-muse.png",
+  },
+  {
+    title: "auth-go",
+    description:
+      "A simple authentication service built with Go, using JWT and refresh tokens. I made this project to learn more about Go and authentication best practices.",
+    tags: ["Go", "JWT", "Docker", "MySQL"],
+    codeUrl: "https://github.com/hsm-gustavo/auth-go",
+    imageUrl: "/auth-go.png",
+  },
+  {
+    title: "This Website",
+    description:
+      "My personal website built with Next.js, TypeScript, and TailwindCSS. It showcases my projects, skills, and contact information.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "shadcn/ui",
+      "Motion/Framer",
+    ],
+    codeUrl: "https://github.com/hsm-gustavo/v2",
+    imageUrl: "/v2.png",
+  },
 ];
 
 export { projects, sideProjects };

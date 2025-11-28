@@ -9,18 +9,20 @@ interface HoverHighlightProps {
   children: React.ReactNode;
   padding?: number;
   className?: string;
+  validateMobile?: boolean;
 }
 
 export function HoverHighlight({
   children,
   padding = 6,
   className = "",
+  validateMobile = true,
 }: HoverHighlightProps) {
   const [rect, setRect] = useState<DOMRect | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
 
-  if (!isMobile) {
+  if (!isMobile && validateMobile) {
     return <div className={cn("relative", className)}>{children}</div>;
   }
 
