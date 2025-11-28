@@ -31,7 +31,7 @@ const projects: Project[] = [
   {
     title: "Cachaça Brejo dos Bois Website",
     description:
-      "I rebuilt the brand’s web presence with a clean, mobile-first UI using Next.js, TypeScript, TailwindCSS, and shadcn/ui, ensuring accessibility and alignment with their visual identity.",
+      "I rebuilt the brand's web presence with a clean, mobile-first UI using Next.js, TypeScript, TailwindCSS, and shadcn/ui, ensuring accessibility and alignment with their visual identity.",
     tags: [
       "Next.js",
       "TailwindCSS",
@@ -66,6 +66,9 @@ const projects: Project[] = [
     projectUrl:
       "https://api.whatsapp.com/send?phone=558235300071&text=Ol%C3%A1",
   },
+];
+
+const sideProjects: Project[] = [
   {
     title: "MonaAI",
     description:
@@ -82,4 +85,4 @@ const projects: Project[] = [
   },
 ];
 
-export { projects };
+export { projects, sideProjects };

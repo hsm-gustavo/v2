@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface HoverHighlightProps {
   children: React.ReactNode;
@@ -17,6 +18,11 @@ export function HoverHighlight({
 }: HoverHighlightProps) {
   const [rect, setRect] = useState<DOMRect | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
+
+  if (!isMobile) {
+    return <div className={cn("relative", className)}>{children}</div>;
+  }
 
   const handleHover = (e: React.MouseEvent<HTMLElement>) => {
     const el = e.currentTarget;
@@ -45,7 +51,7 @@ export function HoverHighlight({
           <motion.div
             layout
             key={"highlight"}
-            className="absolute rounded-md border-2 border-white/30"
+            className="absolute rounded-md border-2 border-white/50"
             style={{
               top: rect.top,
               left: rect.left,
