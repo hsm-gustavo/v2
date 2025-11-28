@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Carlito } from "next/font/google";
+import { Carlito, Fira_Code } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const carlito = Carlito({
   variable: "--font-carlito",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const firaCode = Fira_Code({
+  variable: "--font-fira-code",
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -19,11 +27,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${carlito.variable} ${carlito.className} min-h-screen antialiased`}
+        className={`${carlito.variable} ${firaCode.variable} ${carlito.className} antialiased`}
       >
-        {children}
+        <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
