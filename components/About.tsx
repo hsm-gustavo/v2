@@ -29,6 +29,9 @@ export default function About() {
             <Link
               href="https://www.rapidoinfoshop.com"
               className="text-foreground-secondary underline"
+              title="Go to Rápido Infoshop's Website"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Rápido Infoshop
             </Link>

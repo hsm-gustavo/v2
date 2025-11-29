@@ -34,7 +34,12 @@ function ContactIcon({
 }) {
   return (
     <Button variant={"ghost"} size={"icon"} className="rounded-full p-2">
-      <Link href={url}>
+      <Link
+        href={url}
+        title={`Go to ${alt}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Image src={iconUrl} width={32} height={32} alt={alt} />
       </Link>
     </Button>
