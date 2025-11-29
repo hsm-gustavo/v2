@@ -66,6 +66,7 @@ function Navbar({
                 smoothScrollToSection(e);
                 setIsMenuOpen(false);
               }}
+              title="Go to About Section"
               className="block py-2"
             >
               about
@@ -78,6 +79,7 @@ function Navbar({
                 smoothScrollToSection(e);
                 setIsMenuOpen(false);
               }}
+              title="Go to Projects Section"
               className="block py-2"
             >
               projects
@@ -90,6 +92,7 @@ function Navbar({
                 smoothScrollToSection(e);
                 setIsMenuOpen(false);
               }}
+              title="Go to Contact Section"
               className="block py-2"
             >
               contact
@@ -98,6 +101,7 @@ function Navbar({
           <li>
             <Link
               href={"/resume.pdf"}
+              title="Go to My Resume"
               target="_blank"
               rel="noopener noreferrer"
               className="block py-2"
@@ -117,22 +121,39 @@ function Navbar({
     <nav className="flex items-center gap-6">
       <ul className="flex items-center gap-4">
         <li>
-          <Link href={"#about"} onClick={(e) => smoothScrollToSection(e)}>
+          <Link
+            href={"#about"}
+            title="Go to About Section"
+            onClick={(e) => smoothScrollToSection(e)}
+          >
             about
           </Link>
         </li>
         <li>
-          <Link href={"#projects"} onClick={(e) => smoothScrollToSection(e)}>
+          <Link
+            href={"#projects"}
+            title="Go to Projects Section"
+            onClick={(e) => smoothScrollToSection(e)}
+          >
             projects
           </Link>
         </li>
         <li>
-          <Link href={"#contact"} onClick={(e) => smoothScrollToSection(e)}>
+          <Link
+            href={"#contact"}
+            title="Go to Contact Section"
+            onClick={(e) => smoothScrollToSection(e)}
+          >
             contact
           </Link>
         </li>
         <li>
-          <Link href={"/resume.pdf"} target="_blank" rel="noopener noreferrer">
+          <Link
+            href={"/resume.pdf"}
+            title="Go to My Resume"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             resume
           </Link>
         </li>
@@ -202,6 +223,7 @@ export default function Header() {
       >
         <Link
           href={"#"}
+          title="Go to Top"
           className="inline-block cursor-pointer space-x-1 select-none"
           onClick={(e) => smoothScrollToSection(e)}
         >

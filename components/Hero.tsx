@@ -76,7 +76,9 @@ export default function Hero() {
             size={"lg"}
             asChild
           >
-            <Link href="#contact">Get in touch</Link>
+            <Link href="#contact" title="Go to Contact Section">
+              Get in touch
+            </Link>
           </Button>
         </motion.div>
       </motion.div>

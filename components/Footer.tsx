@@ -8,6 +8,7 @@ export default function Footer() {
         Inspired by{" "}
         <Link
           href="https://v4.brittanychiang.com/"
+          title="Go to Britanny Chiang's Website"
           target="_blank"
           rel="noopener noreferrer"
           className="text-foreground-secondary underline"
